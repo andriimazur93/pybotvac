@@ -1,6 +1,6 @@
-import pkg_resources
+from importlib.metadata import PackageNotFoundError, version
 
 try:
-    __version__ = pkg_resources.get_distribution("pybotvac").version
-except Exception:  # pylint: disable=broad-except
+    __version__ = version("pybotvac")
+except PackageNotFoundError:  # package not installed
     __version__ = "unknown"
